@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style: none;
+            text-decoration: none;
+        }
+
+        body{
+            width: 100vw;
+            height: 100vh;
+        }
+
+        :root{
+            --conwidth: 500px;
+            --conheight: 500px;
+        }
+
+        .container{
+            /* width: var(--conwidth);
+            height: var(--conheight); */
+            position: relative;
+            top: calc(50% - var(--conheight) / 2);
+            left: calc(50% - var(--conwidth) / 2);
+
+            background-color: yellowgreen;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- Container start -->
+    <div class="container">
+        <!-- Box start -->
+        <div id="box"></div>
+        <!-- Box end -->
+    </div>
+    <!-- Container end -->
+
+    <script src="./assets/script.js"></script>
+</body>
+
+</html>
