@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+body{
+    display: flex;
+
+}
+
+div{
+    width: 250px;
+    height: 250px;
+    border: 1px solid black;
+}
+
+img{
+    width: 250px;
+    height: 250px;
+}
