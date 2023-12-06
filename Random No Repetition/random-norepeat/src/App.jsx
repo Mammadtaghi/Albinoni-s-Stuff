@@ -8,9 +8,13 @@ function App() {
   const [count, setCount] = useState(0)
 
   function handleGenerate(interval) {
+    if (!interval) {
+      setCount('Enter an Interval')
+      return
+    }
 
     if (generated.length >= interval) {
-      console.log("No More Move");
+      setCount("No More Move")
       return
     }
 
