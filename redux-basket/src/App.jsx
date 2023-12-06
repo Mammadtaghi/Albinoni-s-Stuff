@@ -12,7 +12,7 @@ function App() {
 
   useFetch('http://localhost:3000/products', setProducts)
 
-  const Basket = useSelector(state => state.basketStore)
+  const Basket = useSelector(state => state.basketStore.basket)
   const dispatch = useDispatch()
 
   function handleProduct(item) {

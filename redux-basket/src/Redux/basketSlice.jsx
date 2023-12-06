@@ -1,32 +1,31 @@
 import { createSlice } from "@reduxjs/toolkit";
-import useLocalStorage from "../Hooks/useLocalStorage";
-
-initialState = useLocalStorage('basket')
 
 export const basketSlice = createSlice({
     name:"basket",
-    initialState: useLocalStorage('basket'),
+    initialState:{
+        basket:[]
+    },
     reducers:{
         addToBasket:(state,action)=>{
-            const index = state.findIndex((x)=>x.id === action.payload.id)
+            const index = state.basket.findIndex((x)=>x.id === action.payload.id)
             if (index === -1) {
                 action.payload.count = 1
-                state.push(action.payload)
+                state.basket.push(action.payload)
                 return
             }
-            state[index].count ++
+            state.basket[index].count ++
         },
         increment:(state, action)=>{
-            const index = state.findIndex((x)=>x.id === action.payload.id)
-            state[index].count ++
+            const index = state.basket.findIndex((x)=>x.id === action.payload.id)
+            state.basket[index].count ++
         },
         decrement:(state, action)=>{
-            const index = state.findIndex((x)=>x.id === action.payload.id)
-            if (state[index].count === 1) {
-                state = state.filter((x)=> x.id !== action.payload.id)
+            const index = state.basket.findIndex((x)=>x.id === action.payload.id)
+            if (state.basket[index].count === 1) {
+                state.basket = state.basket.filter((x)=> x.id !== action.payload.id)
                 return
             }
-            state[index].count --
+            state.basket[index].count --
         },
     }
 })
