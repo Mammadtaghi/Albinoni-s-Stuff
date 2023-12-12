@@ -1,0 +1,116 @@
+#nav{
+    height: 90px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid black;
+    
+    .container{
+        width: 90%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .Lpart{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .strong{
+                cursor: pointer;
+                font-size: 30px;
+            }
+        }
+
+        .Mpart{
+            width: 30%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+
+        
+        }
+
+        .Rpart{
+            width: 25%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .searchBox{
+                display: flex;
+                align-items: center;
+                padding: 9px;
+                background-color: rgb(243, 235, 235);
+                
+                input{
+                    outline: none;
+                    border:none;
+                    background-image:none;
+                    background-color:transparent;
+                    -webkit-box-shadow: none;
+                    -moz-box-shadow: none;
+                    box-shadow: none;
+                }
+
+                i{
+                    font-size: 20px;
+
+
+                }
+            }
+
+            .IconContainer{
+                width: 30%;
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+
+                i{
+                    position: relative;
+                    font-size: 20px;
+                    cursor: pointer;
+
+                    .countBox{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 11px;
+                        width: 15px;
+                        height: 15px;
+                        background-color: rgb(255, 60, 0);
+                        border-radius: 15px;
+                        position: absolute;
+                        top: -7px;
+                        right: -7px;
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+.navList{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    li{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+
+        .active{
+            color: red;
+            border-bottom: 1px solid black;
+        }
+    }
+}

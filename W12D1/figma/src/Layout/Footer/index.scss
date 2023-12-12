@@ -1,0 +1,52 @@
+#footer{
+    padding: 5em 0;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    column-gap: 3em;
+    background-color: black;
+    color: white;
+
+    .footerList{
+        max-width: 200px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        row-gap: 15px;
+
+        li{
+            width: 100%;
+            .downloadApp{
+                max-height: 212px;
+                display: flex;
+                align-items: center;
+                column-gap: 10px;
+                
+                .downloadLSide{
+                    height: 100%;
+                    width: 80%;
+                }
+
+                .downloadRSide{
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    row-gap: 10px;
+                }
+            }
+
+            .iconsBoxFooter{
+                width: 80%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+        }
+
+        .footerTitle{
+            font-weight: 700;
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+    }
+}
