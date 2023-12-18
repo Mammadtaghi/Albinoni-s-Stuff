@@ -1,0 +1,12 @@
+#Services{
+    padding: 3em 0;
+    display: flex;
+    justify-content: center;
+
+    .servicesContainer{
+        display: flex;
+        align-items: center;
+        column-gap: 3em;
+        
+    }
+}

@@ -1,0 +1,23 @@
+#Service{
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 24px;
+
+    .imgBox{
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        background-color: black;
+        border-radius: 40px;
+        border: 10px solid gray;
+    }
+
+    h4,h6{
+        color: black;
+    }
+}

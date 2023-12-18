@@ -1,0 +1,15 @@
+.sectionTitle{
+    color: tomato;
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+
+    &::before{
+        content: '';
+        border-radius: 4px;
+        display: inline-block;
+        height: 40px;
+        width: 20px;
+        background-color: tomato;
+    }
+}

@@ -1,0 +1,75 @@
+#todays{
+    width: 100%;
+    padding: 3em 100px;
+
+    .todayContainer{
+        overflow: hidden;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        row-gap: 4em;
+
+        .todaysTitleBox{
+            display: flex;
+            flex-direction: column;
+            row-gap: 3em;
+
+            .todaysTitle{
+                color: tomato;
+                display: flex;
+                align-items: center;
+                column-gap: 20px;
+
+                &::before{
+                    content: '';
+                    border-radius: 4px;
+                    display: inline-block;
+                    height: 40px;
+                    width: 20px;
+                    background-color: tomato;
+                }
+            }
+
+            .flashSales{
+                display: flex;
+                align-items: center;
+                column-gap: 4em;
+
+                .flashTitle{
+                    font-size: 30px;
+                    letter-spacing: 2px;
+                }
+
+                .remainingTime{
+                    font-size: 35px;
+                    word-spacing: 5px;
+                    
+                    span.time{
+                        position: relative;
+
+                        &::before{
+                            content: attr(id);
+                            display: inline-block;
+                            font-size: 13px;
+                            position: absolute;
+                            top: -10px;
+                            left: 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        .todaysProducts{
+            display: flex;
+            align-items: center;
+            column-gap: 30px;
+
+        }
+
+        .buttonContainer{
+            align-self: center;
+        }
+    }
+}

@@ -1,0 +1,20 @@
+#BestSelling{
+    padding: 3em 100px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 3em;
+
+    .bestSellingSubTitleContainer{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .bestSellingProducts{
+        overflow: hidden;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        column-gap: 30px;
+    }
+}

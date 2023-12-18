@@ -1,9 +1,9 @@
 import React from 'react'
 import './index.scss'
 import { NavLink } from 'react-router-dom';
-import QrCode from "./../../images/Qrcode 1.png";
-import PlayStore from "./../../images/png-transparent-google-play-store-logo-google-play-app-store-android-wallets-text-label-logo.png";
-import AppStore from "./../../images/download-appstore.png";
+import QrCode from "./../../../images/Qrcode 1.png";
+import PlayStore from "./../../../images/png-transparent-google-play-store-logo-google-play-app-store-android-wallets-text-label-logo.png";
+import AppStore from "./../../../images/download-appstore.png";
 
 
 function Footer() {
