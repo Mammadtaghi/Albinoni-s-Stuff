@@ -1,6 +1,5 @@
 import { NavLink } from "react-router-dom";
 import style from "./index.module.scss";
-import styled from "styled-components";
 import React, { useEffect, useState } from 'react'
 
 function Navbar() {
@@ -25,7 +24,7 @@ function Navbar() {
             <li><NavLink to='/' activeclassname={style.active}>Home</NavLink></li>
             <li><NavLink to='/contact' activeclassname={style.active}>Contact</NavLink></li>
             <li><NavLink to='/about' activeclassname={style.active}>About</NavLink></li>
-            <li><NavLink to='/signin' activeclassname={style.active}>Sign In</NavLink></li>
+            <li><NavLink to='/login' activeclassname={style.active}>Sign In</NavLink></li>
           </ul>
         </div>
         <div className={style.Rpart}>

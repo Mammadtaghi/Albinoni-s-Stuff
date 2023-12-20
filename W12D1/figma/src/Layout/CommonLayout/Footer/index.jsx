@@ -26,11 +26,11 @@ function Footer() {
       </ul>
       <ul className='footerList'>
         <li className='footerTitle'>Account</li>
-        <li><NavLink>My Account</NavLink></li>
-        <li><NavLink>Login / Register</NavLink></li>
-        <li><NavLink>Cart</NavLink></li>
-        <li><NavLink>Wishlist</NavLink></li>
-        <li><NavLink>Shop</NavLink></li>
+        <li><NavLink to='/account'>My Account</NavLink></li>
+        <li><NavLink to='/login'>Login</NavLink> / <NavLink to='signup'>Register</NavLink></li>
+        <li><NavLink to='/cart'>Cart</NavLink></li>
+        <li><NavLink to='/wishlist'>Wishlist</NavLink></li>
+        <li><NavLink to='/shop'>Shop</NavLink></li>
       </ul>
       <ul className='footerList'>
         <li className='footerTitle'>Quick Link</li>
