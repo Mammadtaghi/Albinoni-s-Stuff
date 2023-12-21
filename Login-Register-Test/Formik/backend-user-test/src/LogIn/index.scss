@@ -1,0 +1,10 @@
+.AlbiForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 20px;
+
+    label{
+        font-size: 25px;
+    }
+}
