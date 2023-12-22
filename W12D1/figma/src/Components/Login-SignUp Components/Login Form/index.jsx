@@ -4,6 +4,7 @@ import styled from "styled-components";
 import React from 'react'
 import "./index.scss";
 import Button from '../../Common Components/Button';
+import { Link } from 'react-router-dom';
 
 const LoginInitialValues = {
   name: '',
@@ -26,6 +27,7 @@ const StyledField = styled(Field)`
     box-shadow: none;
     padding: 8px;
     border-bottom: 1px solid black;
+    font-size: 18px;
 
     &:focus{
       outline: none;
@@ -39,7 +41,7 @@ function LoginForm() {
   return (
     <div className='formContainer'>
       <div className="formTitle">
-        <h1>Log in to Exclusive</h1>
+        <h1 className='loginTitle'>Log in to Exclusive</h1>
         <h4>Enter your details below</h4>
       </div>
       <Formik
@@ -58,11 +60,12 @@ function LoginForm() {
           <StyledField id="password" name="password" placeholder="Password" type="password" />
 
           <div className="SUButtonContainer">
-            <Button id='createButton' type="submit">Create</Button>
+            <Button id='createButton' type="submit">Log In</Button>
             <a id='forgotPass' href="/login">Forgot Password?</a>
           </div>
         </Form>
       </Formik>
+      <p className='dontHaveAcc'>Do not have an account yet? <Link to="/register">Create an Account</Link></p>
     </div>
   )
 }
