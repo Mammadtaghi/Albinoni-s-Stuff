@@ -1,0 +1,36 @@
+.formContainer{
+    width: 371px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 48px;
+    
+    .formTitle{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        row-gap: 24px;
+    
+    }
+    
+    .loginForm{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        row-gap: 40px;
+    
+        .SUButtonContainer{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            #createButton{
+                padding: 16px;
+            }
+
+            #forgotPass{
+                color: tomato;
+            }
+        }
+    }
+}
