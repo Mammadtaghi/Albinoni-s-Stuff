@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./index.scss";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import axios from "axios";
 import * as Yup from "yup";
+import { Link } from 'react-router-dom';
 
 const FormikInitialValues = {
     username: '',
@@ -24,11 +25,17 @@ const SignUpSchema = Yup.object().shape({
 
 function SignUp() {
 
+    const [response, setResponse] = useState('')
+
     async function handleValues(values) {
 
         console.log(values);
 
         const response = await axios.post('http://localhost:8000/register', values)
+
+        const data = response.data
+
+        setResponse(data)
 
     }
 
@@ -55,6 +62,8 @@ function SignUp() {
 
             </Form>
         </Formik>
+        <Link to='/login'>Go to Login</Link>
+        <p>{response && response}</p>
         </>
     )
 }

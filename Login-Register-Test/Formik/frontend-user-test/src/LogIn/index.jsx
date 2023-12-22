@@ -3,6 +3,7 @@ import "./index.scss";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import axios from "axios";
 import * as Yup from "yup";
+import { Link } from 'react-router-dom';
 
 const FormikInitialValues = {
     username: '',
@@ -30,13 +31,16 @@ function LogIn() {
 
         const response = await axios.post('http://localhost:8000/login', values)
 
-        setToken(response.data)
+        const data = response.data
 
-        console.log(response.data);
+        setToken(data)
+
+        
+
     }
 
     return (
-        <>
+        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
             <h1>Log In</h1>
             <Formik
                 initialValues={FormikInitialValues}
@@ -59,7 +63,8 @@ function LogIn() {
                 </Form>
             </Formik>
             <textarea name="token" id="token" defaultValue={token} cols="30" rows="10"></textarea>
-        </>
+            <Link to='/register'>Go to Register</Link>
+        </div>
     )
 }
 

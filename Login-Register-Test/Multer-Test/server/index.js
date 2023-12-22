@@ -5,6 +5,8 @@ import express from "express";
 import jwt from "jsonwebtoken";
 import mongoose from "mongoose";
 import { Users } from "./src/Models/userModel.js";
+import { CheckToken } from "./src/Middleware/CheckToken.js";
+import { CheckAdmin } from "./src/Middleware/CheckAdmin.js";
 
 dotenv.config()
 
@@ -38,16 +40,19 @@ app.use(cors())
 //   })
 
 
-app.get('/users', async (req, res) => {
+app.get('/users', CheckToken, async (req, res) => {
   try {
+
     const users = await Users.find()
-    res.send(users)
+
+    res.status(202).send(users)
+
   } catch (error) {
-    res.status(404).send('Users Not Found')
+    res.status(404).send('Invalid Token')
   }
 })
 
-app.get('/users/:id', async (req, res) => {
+app.get('/users/:id', CheckToken, async (req, res) => {
   try {
     const { id } = req.params
     const user = await Users.findById(id)
@@ -56,6 +61,18 @@ app.get('/users/:id', async (req, res) => {
     res.status(404).send('User Not Found')
   }
 })
+
+app.delete('/users/:id', CheckToken, CheckAdmin, async (req, res) => {
+  try {
+
+    const { id } = req.params
+    const user = await Users.findById(id)
+    res.send(user)
+  } catch (error) {
+    res.status(404).send('User Not Found')
+  }
+})
+
 
 // const token = jwt.sign({
 //   username: username,
@@ -68,6 +85,12 @@ app.post('/register', async (req, res) => {
     const { username, password, role } = req.body
 
     const hashedPassword = await bcrypt.hash(password, 7)
+
+    const User = await Users.findOne({ username: username })
+
+    if (User) {
+      res.status(406).send("We have this user!")
+    }
 
     const newUser = new Users({
       username: username,
@@ -89,22 +112,22 @@ app.post('/login', async (req, res) => {
   try {
     const { username, password, role } = req.body
 
-    if (!username || !password || !role ) {
+    if (!username || !password || !role) {
       res.status(406).send("Fill form")
     }
-    else{
+    else {
       try {
-        const User = await Users.findOne({username:username})
+        const User = await Users.findOne({ username: username })
 
-        if (!bcrypt.compare(password,User.password)) {
+        if (!bcrypt.compare(password, User.password)) {
           res.status(406).send('Worng password')
           return
         }
 
         const token = jwt.sign({
           username: username,
-          role:role
-        },"AlbiKey",{expiresIn:"120s"})
+          role: role
+        }, "AlbiKey", { expiresIn: "1h" })
 
         res.status(202).send(token)
 
