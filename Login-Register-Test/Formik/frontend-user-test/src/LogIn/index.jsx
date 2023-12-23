@@ -51,12 +51,10 @@ function LogIn() {
 
                     <label htmlFor="username">Username</label>
                     <Field id='' name='username' placeholder='Enter username' />
-                    <ErrorMessage name="username" />
+                    <ErrorMessage component={'span'} name="username" />
                     <label htmlFor="password">Password</label>
                     <Field id='' name='password' placeholder='Enter password' />
-                    <ErrorMessage name="password" />
-                    <label htmlFor="role">Role</label>
-                    <Field id='' name='role' placeholder='Enter role' />
+                    <ErrorMessage component={'span'} name="password" />
 
                     <button type="submit">Submit</button>
 

@@ -110,23 +110,25 @@ app.post('/register', async (req, res) => {
 
 app.post('/login', async (req, res) => {
   try {
-    const { username, password, role } = req.body
+    const { username, password } = req.body
 
-    if (!username || !password || !role) {
+    if (!username || !password) {
       res.status(406).send("Fill form")
     }
     else {
       try {
         const User = await Users.findOne({ username: username })
 
-        if (!bcrypt.compare(password, User.password)) {
+        console.log(await bcrypt.compare(password, User.password))
+
+        if (!(await bcrypt.compare(password, User.password))) {
           res.status(406).send('Worng password')
           return
         }
 
         const token = jwt.sign({
           username: username,
-          role: role
+          role: User.role
         }, "AlbiKey", { expiresIn: "1h" })
 
         res.status(202).send(token)
