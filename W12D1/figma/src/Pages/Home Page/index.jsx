@@ -6,7 +6,7 @@ import Categories from '../../Layout/HomeLayout/Categories'
 import BestSelling from '../../Layout/HomeLayout/BestSelling'
 import HomeAdd from '../../Layout/HomeLayout/HomeAdd'
 import OurProducts from '../../Layout/HomeLayout/OurProducts'
-import Services from '../../Layout/HomeLayout/Services'
+import Services from '../../Layout/CommonLayout/Services'
 
 function Home() {
   return (

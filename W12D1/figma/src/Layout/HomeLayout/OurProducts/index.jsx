@@ -17,7 +17,7 @@ function OurProducts() {
         <SectionSubTitle>Explore Our Products</SectionSubTitle>
         <div className="ourProducts">
           {Products && Products.map(product => (
-            <Product {...product} />
+            <Product key={product.id} {...product} />
           ))}
         </div>
         <div className="buttonContainer"><Button>View All Products</Button></div>

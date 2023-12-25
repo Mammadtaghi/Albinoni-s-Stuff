@@ -1,9 +1,9 @@
 import React from 'react'
 import './index.scss'
-import Service from '../../../Components/Home Components/Service'
 import DeliveryIcon from "../../../images/icon-Delivery Service.png";
 import CostumerIcon from "../../../images/Icon-Customer service.png";
 import SecureIcon from "../../../images/icon-Secure Service.png";
+import Service from '../../../Components/Common Components/Service';
 
 
 function Services() {

@@ -1,0 +1,60 @@
+.table{
+    width: 100%;
+
+    .thead{
+
+        tr{
+
+            th{
+                width: 25%;
+            }
+        }
+    }
+
+    .tbody{
+
+        tr{
+
+            .imgTD{
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+                
+                .cartImgBox{
+                    overflow: hidden;
+                    width: 54px;
+                    height: 54px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                }
+            }
+
+            .priceBox{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .countBox{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                #quantity{
+                    width: 72px;
+                    height: 44px;
+                    font-size: 20px;
+                }
+            }
+
+            .subtotalBox{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+}

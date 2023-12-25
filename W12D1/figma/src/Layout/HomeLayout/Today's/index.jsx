@@ -1,10 +1,10 @@
 import React from 'react'
-import './index.scss'
-import Product from '../../../Components/Home Components/Home Product'
-import { getProducts } from '../../../Context/productContext'
-import SectionTitle from '../../../Components/Home Components/SectionTitle'
-import SectionSubTitle from '../../../Components/Home Components/SectionSubTitle'
 import Button from '../../../Components/Common Components/Button'
+import Product from '../../../Components/Home Components/Home Product'
+import SectionSubTitle from '../../../Components/Home Components/SectionSubTitle'
+import SectionTitle from '../../../Components/Home Components/SectionTitle'
+import { getProducts } from '../../../Context/productContext'
+import './index.scss'
 
 function Todays() {
 

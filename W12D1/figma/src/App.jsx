@@ -10,6 +10,8 @@ import Cart from "./Pages/Cart Page";
 import './App.css'
 import Login from "./Pages/LogIn Page";
 import { BasketProvider } from "./Context/basketContext";
+import Error from "./Pages/Error Page";
+import { WishlistProvider } from "./Context/wishlistContext";
 
 function App() {
 
@@ -17,17 +19,20 @@ function App() {
     <BrowserRouter>
       <ProductProvider>
         <BasketProvider>
-          <Routes>
-            <Route path="/" element={<Layout />}>
-              <Route path='/' element={<Home />}></Route>
-              <Route path='/about' element={<About />}></Route>
-              <Route path='/contact' element={<Contact />}></Route>
-              <Route path='/register' element={<SignUp />}></Route>
-              <Route path='/login' element={<Login />}></Route>
-              <Route path='/cart' element={<Cart />}></Route>
-              <Route path='/wishlist' element={<Wishlist />}></Route>
-            </Route>
-          </Routes>
+          <WishlistProvider>
+            <Routes>
+              <Route path="/" element={<Layout />}>
+                <Route path='/' element={<Home />}></Route>
+                <Route path='/about' element={<About />}></Route>
+                <Route path='/contact' element={<Contact />}></Route>
+                <Route path='/register' element={<SignUp />}></Route>
+                <Route path='/login' element={<Login />}></Route>
+                <Route path='/cart' element={<Cart />}></Route>
+                <Route path='/wishlist' element={<Wishlist />}></Route>
+                <Route path='*' element={<Error />}></Route>
+              </Route>
+            </Routes>
+          </WishlistProvider>
         </BasketProvider>
       </ProductProvider>
     </BrowserRouter>

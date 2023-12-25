@@ -1,0 +1,18 @@
+#Error{
+    padding: 10em 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 80px;
+
+    .errorTextBox{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 40px;
+
+        .errorTitle{
+            font-size: 110px;
+        }
+    }
+}
