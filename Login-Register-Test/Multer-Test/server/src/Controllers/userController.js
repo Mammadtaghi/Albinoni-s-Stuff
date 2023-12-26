@@ -81,7 +81,8 @@ export const Register = async (req, res) => {
         const User = await Users.findOne({ username: username })
 
         if (User) {
-            res.status(406).send("We have this user!")
+            res.status(406).json({message:"We have this user!"})
+            return
         }
 
         const newUser = new Users({
@@ -92,9 +93,9 @@ export const Register = async (req, res) => {
 
         await newUser.save()
 
-        res.status(201).send(`${role} created`)
+        res.status(201).send(`${username} created`)
 
     } catch (error) {
-        res.status(500).send('Something went wrong')
+        res.status(500).json({message:'Something went wrong'})
     }
 }
