@@ -93,7 +93,12 @@ export const Register = async (req, res) => {
 
         await newUser.save()
 
-        res.status(201).send(`${username} created`)
+        const token = jwt.sign({
+            username: newUser.username,
+            role: newUser.role
+        }, "AlbiKey", { expiresIn: "1h" })
+
+        res.status(201).send(token)
 
     } catch (error) {
         res.status(500).json({message:'Something went wrong'})
