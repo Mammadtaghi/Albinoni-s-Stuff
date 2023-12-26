@@ -40,6 +40,8 @@ app.use(cors())
 //   })
 
 
+// Get All Users
+
 app.get('/users', CheckToken, async (req, res) => {
   try {
 
@@ -52,6 +54,8 @@ app.get('/users', CheckToken, async (req, res) => {
   }
 })
 
+// Get User By ID
+
 app.get('/users/:id', CheckToken, async (req, res) => {
   try {
     const { id } = req.params
@@ -62,11 +66,12 @@ app.get('/users/:id', CheckToken, async (req, res) => {
   }
 })
 
+// Delete User By ID
+
 app.delete('/users/:id', CheckToken, CheckAdmin, async (req, res) => {
   try {
-
     const { id } = req.params
-    const user = await Users.findById(id)
+    const user = await Users.findByIdAndDelete(id)
     res.send(user)
   } catch (error) {
     res.status(404).send('User Not Found')
@@ -79,6 +84,8 @@ app.delete('/users/:id', CheckToken, CheckAdmin, async (req, res) => {
 //   password:password,
 //   role:role
 // },"AlbiKey",{expiresIn:"120s"})
+
+// Register
 
 app.post('/register', async (req, res) => {
   try {
@@ -107,6 +114,7 @@ app.post('/register', async (req, res) => {
   }
 })
 
+// Login
 
 app.post('/login', async (req, res) => {
   try {
@@ -137,22 +145,21 @@ app.post('/login', async (req, res) => {
         res.status(406).send(`No user named ${username}`)
       }
     }
-
   } catch (error) {
     res.status(500).send('Something went wrong')
   }
 })
 
 
-app.delete('/users/:id', async (req, res) => {
-  try {
-    const { id } = req.params.id
-    const deletedUser = await Users.findByIdAndDelete(id)
-    res.status(200).send("User deleted successfully!")
-  } catch (error) {
-    res.status(500).send('Something went wrong')
-  }
-})
+// app.delete('/users/:id', async (req, res) => {
+//   try {
+//     const { id } = req.params.id
+//     const deletedUser = await Users.findByIdAndDelete(id)
+//     res.status(200).send("User deleted successfully!")
+//   } catch (error) {
+//     res.status(500).send('Something went wrong')
+//   }
+// })
 
 
 
