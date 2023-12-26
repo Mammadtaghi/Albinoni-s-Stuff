@@ -17,7 +17,6 @@ app.use(cors())
 
 app.use("/",userRouter)
 
-
 app.post('/product', (req, res) => {
   res.send(req.body)
 })
