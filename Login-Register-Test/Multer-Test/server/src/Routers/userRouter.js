@@ -14,6 +14,6 @@ router.delete("/users/:id", CheckToken, CheckAdmin, DeleteUserByID);
 
 router.post("/register", Register);
 
-router.get("/login", Login);
+router.post("/login", Login);
 
 export default router

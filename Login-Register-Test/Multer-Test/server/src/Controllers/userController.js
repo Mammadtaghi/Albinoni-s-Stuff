@@ -43,39 +43,38 @@ export const Login = async (req, res) => {
         const { username, password } = req.body
 
         if (!username || !password) {
-            res.status(406).send("Fill form")
+            res.status(406).json({message:"Fill form"})
         }
         else {
             try {
                 const User = await Users.findOne({ username: username })
 
-                console.log(await bcrypt.compare(password, User.password))
-
                 if (!(await bcrypt.compare(password, User.password))) {
-                    res.status(406).send('Worng password')
+                    res.status(406).json({message:'Worng password'})
                     return
                 }
 
                 const token = jwt.sign({
-                    username: username,
+                    username: User.username,
                     role: User.role
                 }, "AlbiKey", { expiresIn: "1h" })
 
                 res.status(202).send(token)
 
             } catch (error) {
-                res.status(406).send(`No user named ${username}`)
+                res.status(406).json({message:`No user named ${username}`})
             }
         }
     } catch (error) {
-        res.status(500).send('Something went wrong')
+        res.status(500).json({message:'Something went wrong'})
     }
 }
 
 
+
 export const Register = async (req, res) => {
     try {
-        const { username, password, role } = req.body
+        const { username, password } = req.body
 
         const hashedPassword = await bcrypt.hash(password, 7)
 
@@ -88,7 +87,7 @@ export const Register = async (req, res) => {
         const newUser = new Users({
             username: username,
             password: hashedPassword,
-            role: role
+            role: "User"
         })
 
         await newUser.save()
