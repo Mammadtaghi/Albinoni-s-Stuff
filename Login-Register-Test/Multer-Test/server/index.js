@@ -17,8 +17,12 @@ app.use(cors())
 
 app.use("/",userRouter)
 
-app.post('/product', (req, res) => {
-  res.send(req.body)
+
+
+app.post('/test', (req, res) => {
+  const { category } = req.body
+  console.log(category);
+  res.send(category)
 })
 
 
