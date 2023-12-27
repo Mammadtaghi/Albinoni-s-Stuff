@@ -104,3 +104,38 @@ export const Register = async (req, res) => {
         res.status(500).json({message:'Something went wrong'})
     }
 }
+
+export const ChangePassword = async (req,res)=>{
+    try {
+        const { newPassword } = req.body
+
+        const newHashedPassword = await bcrypt.hash(newPassword,10)
+        
+        const UpdatedUser = await Users.findOneAndUpdate({username:req.username},{password:newHashedPassword})
+
+        res.status(202).send("Password updated!")
+    } catch (error) {
+        res.status(500).json({message:error})
+    }
+}
+
+
+export const MakeAdmin = async (req,res)=>{
+    try {
+        const { username } = req.body
+
+        const User = await Users.findOne({username:username})
+
+        if (User.role.includes("Admin")) {
+            res.status(406).json({message:`${User.username} is already an Admin!`})
+            return
+        }
+
+        const UpdatedUser = await Users.findOneAndUpdate({username:username},{role:"Admin"})
+
+        res.status(202).send(`${username} promoted as Admin`)
+
+    } catch (error) {
+        res.status(500).json({message:error})
+    }
+}
