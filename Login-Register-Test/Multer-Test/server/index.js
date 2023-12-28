@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import express from "express";
 import mongoose from "mongoose";
 import userRouter from "./src/Routers/userRouter.js";
+import productRouter from "./src/Routers/productRouter.js";
 
 dotenv.config()
 
@@ -17,6 +18,7 @@ app.use(cors())
 
 app.use("/",userRouter)
 
+app.use('/',productRouter)
 
 
 app.post('/test', (req, res) => {
