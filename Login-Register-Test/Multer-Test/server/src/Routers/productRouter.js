@@ -5,9 +5,9 @@ import { CheckToken } from "../Middleware/CheckToken.js";
 
 const router = express.Router()
 
-router.get('/products', CheckToken, GetAllProducts)
+router.get('/products', GetAllProducts)
 
-router.get('/products/:id', CheckToken, GetProductByID)
+router.get('/products/:id', GetProductByID)
 
 router.delete('/products/:id', CheckToken, CheckAdmin, DeleteProductByID)
 

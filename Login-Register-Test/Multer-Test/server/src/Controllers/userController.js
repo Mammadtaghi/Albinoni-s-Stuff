@@ -111,7 +111,7 @@ export const ChangePassword = async (req,res)=>{
 
         const newHashedPassword = await bcrypt.hash(newPassword,10)
         
-        const UpdatedUser = await Users.findOneAndUpdate({username:req.username},{password:newHashedPassword})
+        await Users.findOneAndUpdate({username:req.username},{password:newHashedPassword})
 
         res.status(202).send("Password updated!")
     } catch (error) {
