@@ -15,8 +15,8 @@ router.delete('/products', CheckToken, CheckAdmin, DeleteProductByTitle)
 
 router.post('/products', CheckToken, CheckAdmin, CreateNewProduct)
 
-router.put('/products', CheckToken, CheckAdmin, UpdateProductPrice)
+router.put('/products/:id', CheckToken, CheckAdmin, UpdateProductPrice)
 
-router.put('/products', CheckToken, CheckAdmin, UpdateProductDiscount)
+router.put('/products/:id', CheckToken, CheckAdmin, UpdateProductDiscount)
 
 export default router
