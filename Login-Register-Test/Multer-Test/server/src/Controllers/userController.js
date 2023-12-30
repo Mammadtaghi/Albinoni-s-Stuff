@@ -56,7 +56,9 @@ export const Login = async (req, res) => {
 
                 const token = jwt.sign({
                     username: User.username,
-                    role: User.role
+                    role: User.role,
+                    basket: User.basket,
+                    wishlist: User.wishlist
                 }, "AlbiKey", { expiresIn: "1h" })
 
                 res.status(202).send(token)
@@ -134,6 +136,22 @@ export const MakeAdmin = async (req,res)=>{
         const UpdatedUser = await Users.findOneAndUpdate({username:username},{role:"Admin"})
 
         res.status(202).send(`${username} promoted as Admin`)
+
+    } catch (error) {
+        res.status(500).json({message:error})
+    }
+}
+
+
+export const UpdateBasket = async (req,res)=>{
+    try {
+        const { username, basket } = req.body
+
+        const User = await Users.findOne({username:username})
+
+        const UpdatedUser = await Users.findOneAndUpdate({username:username},{basket:basket})
+
+        res.status(202).send(`${username}'s basket updated!`)
 
     } catch (error) {
         res.status(500).json({message:error})

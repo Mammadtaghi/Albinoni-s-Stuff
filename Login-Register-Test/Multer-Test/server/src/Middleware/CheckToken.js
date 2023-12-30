@@ -15,6 +15,8 @@ export const CheckToken = async (req, res, next) => {
         
             req.username = decode.username
             req.role = decode.role
+            req.basket = decode.basket
+            req.wishlist = decode.wishlist
         
             next()
         } catch (error) {
