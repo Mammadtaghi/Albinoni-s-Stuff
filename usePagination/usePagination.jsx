@@ -2,9 +2,13 @@ import { useState } from 'react'
 
 function usePagination(incomeData, incomeCurrentPage = 1, incomeDataPerPage = 2) {
 
-  const [data, setData] = useState(incomeData)
+  const [data, setData] = useState([])
   const [currentPage, setCurrentPage] = useState(incomeCurrentPage)
   const [dataPerPage, setDataPerPage] = useState(incomeDataPerPage)
+
+  useEffect(() => {
+    setData(incomeData)
+  }, [incomeData])
 
   const lastPageIndex = Math.ceil(data.length / dataPerPage)
 
